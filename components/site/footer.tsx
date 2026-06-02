@@ -75,9 +75,15 @@ export function Footer({ settings }: { settings: SiteSettings }) {
             © {new Date().getFullYear()} Raf Auto Freight Logistics. All rights
             reserved.
           </span>
-          <Link href="/privacy-policy" className="hover:text-brand-orange">
-            Privacy Policy
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy-policy" className="hover:text-brand-orange">
+              Privacy Policy
+            </Link>
+            <span className="text-white/20">|</span>
+            <Link href="/terms" className="hover:text-brand-orange">
+              Terms &amp; Conditions
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

@@ -30,7 +30,7 @@ export default function PrivacyPolicyPage() {
           <h2 className="mt-10 font-heading text-2xl font-bold text-brand-navy">
             SMS &amp; Phone Number Privacy
           </h2>
-          <div className="mt-3 rounded-xl border-l-4 border-brand-orange bg-brand-navy/[0.03] p-5 leading-relaxed">
+          <div className="mt-3 space-y-3 rounded-xl border-l-4 border-brand-orange bg-brand-navy/[0.03] p-5 leading-relaxed">
             <p>
               We do not sell, rent, or share consumers&rsquo; personal
               information, including phone numbers, with third parties or
@@ -38,6 +38,11 @@ export default function PrivacyPolicyPage() {
               above categories exclude text messaging originator opt-in data and
               consent; this information will not be shared with any third
               parties.
+            </p>
+            <p>
+              SMS consent and phone numbers collected for SMS communications
+              will not be shared with third parties or affiliates for marketing
+              purposes.
             </p>
           </div>
 

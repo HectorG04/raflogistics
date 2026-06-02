@@ -1,11 +1,12 @@
 -- Raf Freight Logistics — seed data (idempotent). Run after 0001_init.sql.
 
 -- Site settings (single row, id = 1)
-insert into public.site_settings (id, phone, email, address, mc_number, usdot_number, whatsapp, hero_headline, hero_sub)
+insert into public.site_settings (id, phone, phone_secondary, email, address, mc_number, usdot_number, whatsapp, hero_headline, hero_sub)
 values (
   1,
   '+1 (845) 573-1488',
-  'info@raflogisticsgroup.com',
+  '(845) 306-9211',
+  'raf.freightlogistics@gmail.com',
   'United States',
   '01762619',
   '4467308',
@@ -15,6 +16,7 @@ values (
 )
 on conflict (id) do update set
   phone = excluded.phone,
+  phone_secondary = excluded.phone_secondary,
   email = excluded.email,
   mc_number = excluded.mc_number,
   usdot_number = excluded.usdot_number,

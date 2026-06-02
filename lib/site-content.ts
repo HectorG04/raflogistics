@@ -13,7 +13,8 @@ import type { BlogPost, Service, SiteSettings, Testimonial } from "@/lib/types";
 export const DEFAULT_SETTINGS: SiteSettings = {
   id: 1,
   phone: "+1 (845) 573-1488",
-  email: "info@raflogisticsgroup.com",
+  phone_secondary: "(845) 306-9211",
+  email: "raf.freightlogistics@gmail.com",
   address: "United States",
   mc_number: "01762619",
   usdot_number: "4467308",

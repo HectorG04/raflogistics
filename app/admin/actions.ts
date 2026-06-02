@@ -109,6 +109,7 @@ export async function deletePostAction(id: string) {
 export async function saveSettings(fd: FormData) {
   await content.updateSettings({
     phone: text(fd, "phone"),
+    phone_secondary: text(fd, "phone_secondary"),
     email: text(fd, "email"),
     address: text(fd, "address"),
     mc_number: text(fd, "mc_number"),

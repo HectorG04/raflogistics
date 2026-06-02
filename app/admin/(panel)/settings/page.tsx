@@ -37,7 +37,8 @@ export default async function AdminSettingsPage() {
             Contact
           </h2>
           <div className="grid gap-4 sm:grid-cols-2">
-            <Field label="Phone" name="phone" defaultValue={s.phone} />
+            <Field label="Phone (business)" name="phone" defaultValue={s.phone} />
+            <Field label="Phone (secondary)" name="phone_secondary" defaultValue={s.phone_secondary} />
             <Field label="Email" name="email" defaultValue={s.email} />
             <Field label="WhatsApp (digits only)" name="whatsapp" defaultValue={s.whatsapp} />
             <Field label="Address" name="address" defaultValue={s.address} />

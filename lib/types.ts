@@ -86,6 +86,7 @@ export interface BlogPost {
 export interface SiteSettings {
   id: number;
   phone: string | null;
+  phone_secondary: string | null;
   email: string | null;
   address: string | null;
   mc_number: string | null;

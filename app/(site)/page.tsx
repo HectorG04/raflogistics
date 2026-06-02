@@ -59,6 +59,17 @@ export default async function HomePage() {
                 </a>
               )}
             </div>
+            {settings.phone_secondary && (
+              <p className="mt-4 text-white/80">
+                Or call us directly at{" "}
+                <a
+                  href={`tel:${settings.phone_secondary.replace(/[^\d+]/g, "")}`}
+                  className="font-semibold text-brand-orange hover:underline"
+                >
+                  {settings.phone_secondary}
+                </a>
+              </p>
+            )}
           </div>
 
           {/* Quote card */}

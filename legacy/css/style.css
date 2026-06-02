@@ -1,0 +1,701 @@
+/* VARIABLES */
+:root {
+    --navy: #0F172B;
+    --orange: #FF5E14;
+    --yellow: #FFB300;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+h1, h2, h3, .navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* NAVBAR & TOP BAR */
+.top-bar {
+    background: var(--navy);
+    color: white;
+    padding: 10px 0;
+    font-size: 13px;
+}
+
+.top-bar a {
+    color: white;
+    margin-left: 15px;
+    transition: 0.3s;
+}
+
+.top-bar a:hover { color: var(--orange); }
+
+.brand-navy { color: var(--navy); font-weight: 800; font-size: 24px; }
+.brand-orange { color: var(--orange); font-weight: 800; font-size: 24px; }
+
+.nav-link {
+    color: var(--navy) !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 10px 15px !important;
+}
+
+.nav-link:hover, .nav-link.active { color: var(--orange) !important; }
+
+/* BUTTONS */
+.btn-orange {
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 25px;
+    font-weight: bold;
+}
+
+.btn-orange:hover {
+    background-color: var(--navy);
+    color: white;
+}
+
+.btn-navy {
+    background-color: var(--navy);
+    color: white;
+    border: none;
+}
+
+/* HERO SECTION */
+.hero-section {
+    background: linear-gradient(rgba(15, 23, 43, 0.75), rgba(15, 23, 43, 0.75)), 
+                url('../images/main.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 120px 0;
+    min-height: 85vh;
+}
+
+.text-orange { color: var(--orange); }
+
+.subtitle {
+    color: var(--orange);
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+/* QUOTE CARD */
+.quote-card {
+    border-top: 5px solid var(--orange);
+}
+
+.form-control, .form-select {
+    border-radius: 0;
+    padding: 12px;
+    border: 1px solid #eee;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: var(--orange);
+}
+  /* Optional CSS to make links look better */
+    .footer-dark .list-unstyled a {
+        transition: color 0.3s ease;
+    }
+    .footer-dark .list-unstyled a:hover {
+        color: #ffffff !important;
+    }
+
+/* COLORS & UTILS */
+.bg-navy { background-color: var(--navy); }
+.bg-orange { background-color: var(--orange); }
+.text-navy { color: var(--navy); }
+
+/* SERVICE CARDS */
+.service-card {
+    transition: 0.4s ease;
+    border: 1px solid #eee;
+}
+
+.border-bottom-orange {
+    border-bottom: 3px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-bottom-orange: 3px solid var(--orange);
+}
+
+/* ABOUT SECTION BADGE */
+.experience-badge {
+    position: absolute;
+    bottom: -30px;
+    right: 20px;
+    min-width: 150px;
+    z-index: 2;
+}
+
+/* TESTIMONIALS */
+.testimonial-card {
+    border-top: 4px solid var(--orange);
+}
+
+
+
+/* DARK ABOUT SECTION STYLES */
+.about-dark {
+    background-color: #111827; /* Very dark slate/navy */
+    color: #ffffff;
+}
+
+.text-gray-400 { color: #9ca3af; }
+
+.line-red {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-color: #dc2626;
+    clip-path: polygon(0 40%, 100% 40%, 100% 60%, 0 60%); /* Thin line */
+}
+
+/* BUTTON CUSTOM */
+.btn-danger-custom {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 0;
+    transition: 0.3s;
+}
+
+.btn-danger-custom:hover {
+    background-color: #b91c1c;
+    color: white;
+}
+
+/* IMAGE MASKING (THE ANGLE) */
+.about-img-container {
+    position: relative;
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.about-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ROTATING CIRCULAR BADGE */
+.explore-badge {
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+.badge-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.badge-text {
+    font-size: 10px;
+    font-weight: bold;
+    fill: #111827;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: rotateText 10s linear infinite;
+    transform-origin: center;
+}
+
+.center-arrow {
+    position: absolute;
+    color: #dc2626;
+    font-size: 24px;
+    transform: rotate(45deg);
+}
+
+@keyframes rotateText {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 991px) {
+    .about-img-container {
+        clip-path: none; /* Remove angle on small screens */
+    }
+    .explore-badge {
+        left: 50%;
+        top: 0;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+/* WHAT WE DO SECTION STYLES */
+.what-we-do {
+    background-color: #f5f5f5;
+    padding-right: 100px; /* Space for watermark */
+}
+
+/* Vertical Watermark */
+.watermark-text {
+    position: absolute;
+    right: -50px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    font-size: 80px;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.03);
+    -webkit-text-stroke: 1px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    pointer-events: none;
+    text-transform: uppercase;
+}
+
+/* Image Composition */
+.image-stack {
+    position: relative;
+    z-index: 1;
+}
+
+.red-arc {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    border: 15px solid #dc2626;
+    border-radius: 50%;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    transform: rotate(-45deg);
+    z-index: -1;
+}
+
+/* Arrow Service Cards */
+.service-arrow-card {
+    background: #f8f9fa;
+    padding: 40px 30px;
+    position: relative;
+    transition: 0.3s;
+    /* This creates the arrow point on the right */
+    clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+    cursor: pointer;
+}
+
+.service-arrow-card:hover {
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transform: translateX(10px);
+}
+
+.service-arrow-card h5 {
+    font-size: 1.1rem;
+    color: #111827;
+}
+
+.icon-wrap img {
+    filter: grayscale(1) sepia(1) saturate(5) hue-rotate(-50deg); /* Adjusts icons to match red theme */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .watermark-text {
+        display: none;
+    }
+    .service-arrow-card {
+        clip-path: none; /* Reset shape on mobile for better spacing */
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+}
+
+
+/* CAR TRANSPORT SPECIFIC STYLES */
+.car-transport {
+    background-color: #ffffff;
+}
+
+.bg-light-danger {
+    background-color: rgba(220, 38, 38, 0.1); /* Soft red background */
+}
+
+.car-image-wrapper {
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.car-image-wrapper img {
+    /* Angled clip-path to match your earlier sections */
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+    transition: 0.5s ease;
+}
+
+.car-image-wrapper:hover img {
+    transform: scale(1.02);
+}
+
+.floating-info-card {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 240px;
+    border-left: 5px solid #dc2626;
+    z-index: 5;
+}
+
+.feature-icon-sm {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Matching the "Line" style from previous sections */
+.line-red {
+    display: inline-block;
+    width: 25px;
+    height: 3px;
+    background-color: #dc2626;
+}
+
+/* Button override for consistency */
+.btn-danger-custom {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-danger-custom:hover {
+    background-color: #111827; /* Changes to Navy on hover */
+    color: white;
+}
+
+
+/* TESTIMONIAL SLIDER CUSTOMIZATION */
+.bg-navy { background-color: #0F172B; }
+.text-orange { color: #dc2626; } /* Using the Red/Orange from your About section */
+.bg-orange { background-color: #dc2626; }
+
+.testimonial-card {
+    border-top: 5px solid #dc2626;
+    margin: 20px 0;
+}
+
+/* Custom Carousel Controls */
+.carousel-control-prev, .carousel-control-next {
+    width: 5%;
+    opacity: 1;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-size: 50%;
+}
+
+/* Custom Dots (Indicators) */
+.carousel-indicators [button] {
+    background-color: #dc2626;
+}
+
+.carousel-indicators .active {
+    background-color: #ffffff;
+}
+
+/* Make text italic for quotes */
+.italic {
+    font-style: italic;
+    line-height: 1.8;
+}
+
+/* WHAT WE DO SECTION */
+.what-we-do-advanced {
+    background: #fff;
+    overflow: hidden;
+}
+
+.watermark-right {
+    position: absolute;
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    font-size: 80px;
+    font-weight: 900;
+    color: #f8f9fa;
+    z-index: 0;
+    -webkit-text-stroke: 1px #eee;
+}
+
+/* Image Composition */
+.image-stack-container {
+    position: relative;
+    height: 450px;
+}
+
+.red-arc-decoration {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border: 15px solid #dc2626;
+    border-radius: 50%;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    transform: rotate(-35deg);
+    z-index: 1;
+}
+
+.plane-move {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 20px;
+    animation: floatPlane 3s ease-in-out infinite;
+}
+
+.truck-main {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    z-index: 2;
+}
+
+/* Arrow Shape Cards */
+.arrow-card {
+    background: #f9fafb;
+    padding: 30px;
+    position: relative;
+    clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+    transition: 0.3s ease;
+}
+
+.arrow-card:hover {
+    background: #fff;
+    transform: translateX(10px);
+}
+
+.icon-red { color: #dc2626; }
+
+/* FOOTER STYLES */
+.footer-dark {
+    background-color: #0F172B;
+}
+
+.social-box {
+    width: 35px;
+    height: 35px;
+    background: #1e293b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-input {
+    background: #1e293b;
+    border: none;
+    color: white;
+    padding: 15px;
+    border-radius: 0;
+}
+
+.btn-danger-square {
+    background: #dc2626;
+    color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    border: none;
+}
+
+@keyframes floatPlane {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* 
+   .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+ */
+        .year-badge {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #ffc107;
+            line-height: 0.8;
+            opacity: 0.8;
+        }
+
+        .service-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            transition: 0.3s;
+            padding: 40px;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            background: #222;
+        }
+
+        .btn-orange {
+            background-color: var(--primary-orange);
+            color: white;
+            border-radius: 0;
+            padding: 12px 30px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .team-img {
+            height: 400px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: transparent;
+            color: black;
+            box-shadow: none;
+        }
+
+
+        .btn-orange {
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 25px;
+    font-weight: bold;
+}
+
+.btn-orange:hover {
+    background-color: var(--navy);
+    color: white;
+}
+
+.btn-navy {
+    background-color: var(--navy);
+    color: white;
+    border: none;
+}
+
+    /* Custom Breadcrumb Separator Color */
+    .breadcrumb-item + .breadcrumb-item::before {
+        color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .inner-hero h1 {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+
+     .bg-orange-light { background: rgba(255, 77, 28, 0.1); }
+    .transition-hover:hover {
+        transform: translateY(-5px);
+        border-color: #ff4d1c !important;
+        transition: 0.3s ease;
+    }  
+
+
+ .service-card {
+        transition: all 0.3s ease-in-out;
+        border-radius: 4px;
+    }
+    .service-card:hover {
+        background: #252525 !important;
+        border-color: #ff4d1c !important;
+        transform: translateY(-10px);
+        color: #fff;
+    }
+    .service-card i {
+        transition: transform 0.3s ease;
+    }
+    .service-card:hover i {
+        transform: scale(1.1);
+    }
+ .form-control:focus, .form-select:focus {
+        background-color: transparent;
+        border-color: #ff4d1c;
+        box-shadow: none;
+        color: white;
+    }
+    .form-control::placeholder {
+        color: #666;
+    }
+
+
+      /* Styling for the light form inputs */
+    .custom-input {
+        border: 1px solid #eee !important;
+        transition: all 0.3s ease;
+    }
+    .custom-input:focus {
+        background
+
+    }
+
+     .transition-all {
+        transition: all 0.3s ease-in-out;
+    }
+    /* Hover effect: Subtle border highlight */
+    .hover-bg-orange:hover {
+        border-color: #ff4d1c !important;
+        transform: translateY(-5px);
+        background: #222 !important;
+    }
+    .hover-bg-orange:hover i {
+        transform: scale(1.1);
+        transition: 0.3s;
+    }
+
+ .transition-up { transition: all 0.3s ease; }
+    .transition-up:hover {
+        transform: translateY(-5px);
+        background: #1c1c1c !important;
+        border-color: #ff4d1c !important;
+    }
+    .transition-hover {
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .process-item:hover .icon-wrapper {
+        transform: translateY(-10px);
+        background-color: #ff4d1c !important;
+        border-color: #ff4d1c !important;
+    }
+    .process-item:hover .icon-wrapper i {
+        color: #ffffff !important;
+    }
+    .process-item:hover .ghost-number {
+        opacity: 0.08 !important;
+        color: #ff4d1c !important;
+        transition: 0.3s;
+    }
+    .fw-black { font-weight: 900; }

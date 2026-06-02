@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raf Auto Freight | Raf Auto Freight Logistics</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+
+
+</head>
+<body>
+
+  <div class="top-bar d-none d-lg-block">
+        <div class="container d-flex justify-content-between">
+            <div class="contact-info">
+                <span><i class="fa fa-envelope"></i> info@raflogisticsgroup.com</span>
+                <span class="ms-4"><i class="fa fa-phone"></i> +1(845)573-1488</span>
+            </div>
+            <div class="social-links">
+                <span>MC 01762619</span>
+                <span class="ms-4">USDOT 4467308</span>
+            </div>
+        </div>
+    </div>
+
+ <nav class="navbar navbar-expand-lg sticky-top bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+        <img src="images/raf-logo.jpg" alt="Raf Auto Freight">
+
+               <!--  <span class="brand-navy">RAF</span> <span class="brand-orange">AUTO FREIGHT</span> -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about-1.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="auto.html">Auto Transport</a></li>
+                    <li class="nav-item"><a class="nav-link" href="freight.html">Freight Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="carriers.html">Carriers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+                <a href="#quote" class="btn btn-orange ms-lg-4">Get A Quote</a>
+            </div>
+        </div>
+    </nav>
+
+
+<section class="inner-hero position-relative d-flex align-items-center" style="height: 250px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/inner-hero-bg.jpg') center/cover no-repeat;">
+    <div class="container text-white">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="display-5 fw-bold mb-0">Carriers</h1>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-md-end mb-0 bg-transparent">
+                        <li class="breadcrumb-item"><a href="index.html" class="text-white text-decoration-none opacity-75">Home</a></li>
+                        <li class="breadcrumb-item active text-white fw-bold" aria-current="page" style="color: #ff4d1c !important;">Carriers</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div class="position-absolute bottom-0 start-0 w-100" style="height: 4px; background-color: #ff4d1c;"></div>
+</section>
+
+
+<section class="py-5 bg-light">
+    <div class="container py-4">
+        <div class="row g-4 text-center">
+            <div class="col-md-4">
+                <i class="fas fa-hand-holding-usd fs-1 mb-3" style="color: #ff4d1c;"></i>
+                <h5 class="fw-bold">Fast Payments</h5>
+                <p class="small text-muted">We offer competitive rates and quick-pay options to keep your business moving without cash flow delays.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-route fs-1 mb-3" style="color: #ff4d1c;"></i>
+                <h5 class="fw-bold">Quality Loads</h5>
+                <p class="small text-muted">Access to high-volume freight including specialized Auto, Boat, and RV transport opportunities.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-headset fs-1 mb-3" style="color: #ff4d1c;"></i>
+                <h5 class="fw-bold">24/7 Support</h5>
+                <p class="small text-muted">Our dedicated dispatch team is available around the clock to assist you on the road.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="py-5 bg-white">
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-lg p-4 p-md-5">
+                    <h2 class="fw-bold text-center mb-2">Carrier Registration</h2>
+                    <p class="text-center text-muted mb-5">Please fill out the form below to begin the onboarding process.</p>
+                    
+                    <form action="submit_carrier.php" method="POST">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold">Company Name</label>
+                                <input type="text" class="form-control" placeholder="Legal Business Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold">MC / DOT Number</label>
+                                <input type="text" class="form-control" placeholder="Ex: MC# 123456" required>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold">Contact Person</label>
+                                <input type="text" class="form-control" placeholder="Full Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold">Email Address</label>
+                                <input type="email" class="form-control" placeholder="email@company.com" required>
+                            </div>
+                            
+                            <div class="col-12">
+                                <label class="form-label small fw-bold">Primary Equipment Types</label>
+                                <div class="d-flex flex-wrap gap-3 mt-1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="flatbed">
+                                        <label class="form-check-label small" for="flatbed">Flatbed</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="reefer">
+                                        <label class="form-check-label small" for="reefer">Reefer</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="autocarrier">
+                                        <label class="form-check-label small" for="autocarrier">Auto Carrier</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="stepdeck">
+                                        <label class="form-check-label small" for="stepdeck">Stepdeck/Heavy Haul</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <label class="form-label small fw-bold">Comments / Preferred Routes</label>
+                                <textarea class="form-control" rows="3" placeholder="Tell us where you usually run..."></textarea>
+                            </div>
+                            
+                            <div class="col-12 mt-4 text-center">
+                                <button type="submit" class="btn btn-lg px-5 text-white fw-bold" style="background-color: #ff4d1c; border-radius: 0;">SUBMIT APPLICATION</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- <section class="py-5 bg-white">
+    <div class="container py-4">
+        <div class="row align-items-center flex-row-reverse">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="images/truck-inspection.jpg" class="img-fluid rounded shadow-lg" alt="Truck Inspection">
+            </div>
+            <div class="col-lg-6 pe-lg-5">
+                <h6 class="text-uppercase fw-bold" style="color: #ff4d1c;">Partnership Standards</h6>
+                <h2 class="fw-bold mb-4">What We Look For in Our Carriers</h2>
+                <p class="text-muted mb-4">At RAF Logistics Group, we value reliability, safety, and a commitment to excellence. We partner with carriers who share our vision for seamless and secure freight movement across the country.</p>
+                <ul class="list-unstyled mb-0">
+                    <li class="d-flex align-items-center mb-2">
+                        <i class="fas fa-certificate text-dark me-2 fs-5"></i>
+                        <span class="fw-bold">Valid Operating Authority:</span> Active MC/DOT numbers and up-to-date licensing.
+                    </li>
+                    <li class="d-flex align-items-center mb-2">
+                        <i class="fas fa-shield-alt text-dark me-2 fs-5"></i>
+                        <span class="fw-bold">Comprehensive Insurance:</span> Meeting federal and RAF-specific coverage requirements.
+                    </li>
+                    <li class="d-flex align-items-center mb-2">
+                        <i class="fas fa-truck-moving text-dark me-2 fs-5"></i>
+                        <span class="fw-bold">Well-Maintained Equipment:</span> A fleet that is regularly inspected and safe for operation.
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="fas fa-star text-dark me-2 fs-5"></i>
+                        <span class="fw-bold">Strong Safety Record:</span> A commitment to safety ratings and on-road practices.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+<section class="py-5 overflow-hidden" style="background-color: #111;">
+    <div class="container py-5">
+        <div class="row align-items-center flex-row-reverse">
+            
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="position-relative">
+                    <div class="position-absolute top-0 end-0 mt-n3 me-n3 d-none d-md-block" style="width: 100px; height: 100px; border-top: 5px solid #ff4d1c; border-right: 5px solid #ff4d1c; z-index: 0;"></div>
+                    
+                    <img src="images/news-02.jpg" class="img-fluid position-relative shadow-2xl" alt="Truck Inspection" style="border-radius: 0; z-index: 1; filter: grayscale(20%);">
+                    
+                    <div class="position-absolute bottom-0 start-0 m-4 p-3 bg-dark border-start border-4 border-warning shadow-lg d-none d-md-block" style="z-index: 2; background: rgba(20, 20, 20, 0.95); backdrop-filter: blur(10px);">
+                        <h6 class="text-white mb-1 fw-bold">Compliance First</h6>
+                        <p class="text-secondary small mb-0">Safety verified daily.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 pe-lg-5">
+                <h6 class="text-uppercase fw-bold mb-3" style="color: #ff4d1c; letter-spacing: 3px;">Partnership Standards</h6>
+                <h2 class="display-5 fw-bold text-white mb-4">What We Look For in <span style="color: #ff4d1c;">Our Carriers</span></h2>
+                <p class="text-secondary mb-5">At RAF Logistics Group, we don't just hire trucks; we build partnerships. We require the highest standards to maintain our reputation for excellence.</p>
+                
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="p-4 h-100 transition-all border border-secondary rounded-0 hover-bg-orange" style="background: #1a1a1a; border-color: #333 !important;">
+                            <i class="fas fa-certificate fs-3 mb-3" style="color: #ff4d1c;"></i>
+                            <h6 class="text-white fw-bold">Valid Authority</h6>
+                            <p class="text-secondary small mb-0">Active MC/DOT and up-to-date licensing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="p-4 h-100 transition-all border border-secondary rounded-0 hover-bg-orange" style="background: #1a1a1a; border-color: #333 !important;">
+                            <i class="fas fa-shield-alt fs-3 mb-3" style="color: #ff4d1c;"></i>
+                            <h6 class="text-white fw-bold">Full Insurance</h6>
+                            <p class="text-secondary small mb-0">Meeting federal & RAF cargo requirements.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="p-4 h-100 transition-all border border-secondary rounded-0 hover-bg-orange" style="background: #1a1a1a; border-color: #333 !important;">
+                            <i class="fas fa-truck-moving fs-3 mb-3" style="color: #ff4d1c;"></i>
+                            <h6 class="text-white fw-bold">Prime Fleet</h6>
+                            <p class="text-secondary small mb-0">Well-maintained and regularly inspected.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="p-4 h-100 transition-all border border-secondary rounded-0 hover-bg-orange" style="background: #1a1a1a; border-color: #333 !important;">
+                            <i class="fas fa-star fs-3 mb-3" style="color: #ff4d1c;"></i>
+                            <h6 class="text-white fw-bold">Safety Rating</h6>
+                            <p class="text-secondary small mb-0">A proven track record of road safety.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section class="py-5 overflow-hidden" style="background-color: #0f0f0f;">
+    <div class="container py-5">
+        <div class="row align-items-center g-5">
+            
+            <div class="col-lg-6">
+                <div class="pe-lg-5">
+                    <h6 class="text-uppercase fw-bold mb-3" style="color: #ff4d1c; letter-spacing: 4px; font-size: 0.8rem;">THE PARTNER EXPERIENCE</h6>
+                    <h2 class="display-4 fw-bold text-white mb-4">Real results for <br><span style="color: #ff4d1c;">real carriers.</span></h2>
+                    
+                    <div class="testimonial-main py-4 border-top border-secondary mt-4" style="border-color: rgba(255,255,255,0.1) !important;">
+                        <p class="fs-4 text-light fst-italic mb-4" style="line-height: 1.6; color: #e0e0e0 !important;">
+                            "The specialized auto transport loads from RAF have significantly boosted our revenue. They are professional, fair, and a pleasure to work with."
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <div class="bg-orange me-3" style="width: 40px; height: 2px; background: #ff4d1c;"></div>
+                            <div>
+                                <span class="text-white fw-bold d-block">David P.</span>
+                                <span class="small" style="color: #888;">Auto Hauler Specialist</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="p-4 rounded-4 h-100 transition-up" style="background: #161616; border: 1px solid #222;">
+                            <h2 class="fw-black text-white mb-1" style="font-weight: 900;">98%</h2>
+                            <p class="small mb-0" style="color: #888;">On-Time Payment</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-4 rounded-4 h-100 transition-up" style="background: #161616; border: 1px solid #222;">
+                            <h2 class="fw-black text-white mb-1" style="font-weight: 900;">24/7</h2>
+                            <p class="small mb-0" style="color: #888;">Dispatch Access</p>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="p-4 rounded-4 position-relative overflow-hidden" style="background: rgba(255, 77, 28, 0.03); border: 1px solid rgba(255, 77, 28, 0.15);">
+                             <i class="fas fa-quote-right position-absolute end-0 bottom-0 m-3 fs-1" style="color: rgba(255,255,255,0.03);"></i>
+                             <p class="text-light small mb-2" style="color: #ccc !important;">"Joining RAF's network was the best decision for our fleet. Consistent loads and top-notch communication."</p>
+                             <h6 class="text-white small fw-bold mb-0">Sarah L. <span class="fw-normal opacity-50 ms-2">| Fleet Manager</span></h6>
+                        </div>
+                    </div>
+                     <div class="col-12">
+                        <div class="p-4 rounded-4" style="background: #161616; border: 1px solid #222;">
+                             <p class="small mb-2" style="color: #ccc;">"Payments are always on time. They actually understand the road and the driver's perspective."</p>
+                             <h6 class="text-white small fw-bold mb-0">Michael S. <span class="fw-normal opacity-50 ms-2">| Owner Operator</span></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="py-5 overflow-hidden">
+    <div class="container py-5">
+        <div class="row g-0 align-items-stretch shadow-lg rounded overflow-hidden">
+            <div class="col-lg-6 d-none d-lg-block position-relative">
+                <img src="images/driver-jr.jpg" class="h-100 w-100 object-fit-cover" alt="Driver Journey">
+                <div class="position-absolute top-50 start-50 translate-middle text-center w-100">
+                    <h2 class="display-1 fw-black text-white opacity-25">FREEDOM</h2>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 bg-dark text-white p-5 d-flex flex-column justify-content-center">
+                <h6 class="text-orange fw-bold mb-3" style="color: #ff4d1c; letter-spacing: 4px;">THE RAF EDGE</h6>
+                <h2 class="display-6 fw-bold mb-5">Drive for a group that respects the road.</h2>
+                
+                <div class="row g-4">
+                    <div class="col-sm-6 border-start border-warning border-3 ps-4 mb-4">
+                        <h4 class="fw-bold">0% Friction</h4>
+                        <p class="small text-secondary">Digital paperwork and automated dispatching mean less time on the phone and more time on the gas.</p>
+                    </div>
+                    <div class="col-sm-6 border-start border-warning border-3 ps-4 mb-4">
+                        <h4 class="fw-bold">Elite Rates</h4>
+                        <p class="small text-secondary">Our direct-to-shipper relationships ensure we cut out the middle-man margin, putting more in your pocket.</p>
+                    </div>
+                    <div class="col-sm-6 border-start border-warning border-3 ps-4">
+                        <h4 class="fw-bold">Any Load</h4>
+                        <p class="small text-secondary">From standard dry vans to specialized auto haulers, we have the volume you need.</p>
+                    </div>
+                    <div class="col-sm-6 border-start border-warning border-3 ps-4">
+                        <h4 class="fw-bold">Fuel Cards</h4>
+                        <p class="small text-secondary">Access to our network-wide fuel discounts and maintenance perks starting Day 1.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- <section class="py-5 bg-white">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-black display-4">3 Steps to the <span style="color: #ff4d1c;">Open Road</span></h2>
+        </div>
+
+        <div class="row justify-content-center position-relative">
+            <div class="position-absolute start-50 translate-middle-x d-none d-md-block" style="width: 2px; height: 100%; background: #eee; top: 0; z-index: 1;"></div>
+
+            <div class="col-md-10 mb-5 position-relative" style="z-index: 2;">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-md-end pe-md-5">
+                        <h3 class="fw-bold">Digital Sign-Up</h3>
+                        <p class="text-muted">Fill out our high-speed carrier form in under 2 minutes. No faxing, no mailing, no hassle.</p>
+                    </div>
+                    <div class="col-md-6 ps-md-5">
+                        <div class="rounded-circle bg-orange text-white d-inline-flex align-items-center justify-content-center shadow" style="width: 60px; height: 60px; background-color: #ff4d1c; font-size: 24px;">01</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-10 mb-5 position-relative" style="z-index: 2;">
+                <div class="row align-items-center flex-row-reverse">
+                    <div class="col-md-6 text-md-start ps-md-5">
+                        <h3 class="fw-bold">Quick Verification</h3>
+                        <p class="text-muted">Our compliance team reviews your MC/DOT and insurance in real-time, getting you active faster.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end pe-md-5">
+                        <div class="rounded-circle bg-dark text-white d-inline-flex align-items-center justify-content-center shadow" style="width: 60px; height: 60px; font-size: 24px;">02</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-10 position-relative" style="z-index: 2;">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-md-end pe-md-5">
+                        <h3 class="fw-bold">Book Your First Load</h3>
+                        <p class="text-muted">Login to our portal and grab your first haul. Welcome to the RAF Logistics family.</p>
+                    </div>
+                    <div class="col-md-6 ps-md-5">
+                        <div class="rounded-circle bg-orange text-white d-inline-flex align-items-center justify-content-center shadow" style="width: 60px; height: 60px; background-color: #ff4d1c; font-size: 24px;">03</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+
+
+
+<footer class="footer-dark text-white pt-5">
+    <div class="container border-bottom border-secondary pb-5">
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <div class="footer-logo mb-4">
+                    <img src="images/logo-raf-footer-1.png"><br>
+                </div>
+                <div class="social-links-footer mt-4">
+                    <p class="small fw-bold mb-3">Social Link</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="social-box"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-box"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-box"><i class="fab fa-x-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <h5 class="fw-bold mb-4">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="index.html" class="small text-secondary text-decoration-none hover-white">Home</a></li>
+                    <li class="mb-2"><a href="about-1.html" class="small text-secondary text-decoration-none hover-white">About Us</a></li>
+                    <li class="mb-2"><a href="auto.html" class="small text-secondary text-decoration-none hover-white">Auto Transport</a></li>
+                    <li class="mb-2"><a href="freight.html" class="small text-secondary text-decoration-none hover-white">Freight Services</a></li>
+                    <li class="mb-2"><a href="carriers.html" class="small text-secondary text-decoration-none hover-white">Carriers</a></li>
+                    <li class="mb-2"><a href="contact.html" class="small text-secondary text-decoration-none hover-white">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4">
+                <h5 class="fw-bold mb-4">New York Office</h5>
+                <p class="small text-secondary mb-1">Address:</p>
+                <p class="small mb-3">31 Fletcher Rd E Monsey Ny 10952</p>
+                <p class="small text-secondary mb-1">Phone Call:</p>
+                <p class="small">+1(845)573-1488</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container py-4 d-flex justify-content-between align-items-center">
+        <p class="small mb-0 text-secondary">©2026 All rights For Raf Auto Freight</p>
+        <a href="#" class="small text-secondary text-decoration-none">Privacy policy</a>
+    </div>
+</footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

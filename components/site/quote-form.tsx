@@ -3,6 +3,20 @@
 import { useActionState, useEffect, useRef, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { toast } from "sonner";
+import {
+  User,
+  Mail,
+  Phone,
+  Truck,
+  Settings2,
+  MapPin,
+  Calendar,
+  MessageSquare,
+  Lock,
+  ChevronDown,
+  ArrowRight,
+  Check,
+} from "lucide-react";
 import { submitQuote } from "@/app/actions/quote";
 import { initialFormState } from "@/lib/forms";
 import { trackLead } from "@/lib/analytics";
@@ -11,13 +25,94 @@ import { cn } from "@/lib/utils";
 
 const STEPS = ["Contact", "Vehicle / Load", "Route & Date"];
 
+const fieldBase =
+  "w-full rounded-lg border border-black/10 bg-neutral-50 px-3 py-2.5 text-sm text-brand-navy placeholder:text-brand-navy/40 transition focus:border-brand-orange focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-orange/20";
+
+type Icon = React.ComponentType<{ className?: string }>;
+
 function Err({ msg }: { msg?: string }) {
   if (!msg) return null;
   return <p className="mt-1 text-xs text-red-600">{msg}</p>;
 }
 
-const inputClass =
-  "w-full rounded-md border border-black/10 bg-white px-3 py-2.5 text-sm text-brand-navy focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange";
+function IconInput({
+  icon: Icon,
+  error,
+  ...props
+}: { icon: Icon; error?: string } & React.InputHTMLAttributes<HTMLInputElement>) {
+  return (
+    <div>
+      <div className="group relative">
+        <Icon className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-brand-navy/35 transition-colors group-focus-within:text-brand-orange" />
+        <input {...props} className={cn(fieldBase, "pl-9")} />
+      </div>
+      <Err msg={error} />
+    </div>
+  );
+}
+
+function IconSelect({
+  icon: Icon,
+  children,
+  ...props
+}: { icon: Icon } & React.SelectHTMLAttributes<HTMLSelectElement>) {
+  return (
+    <div className="group relative">
+      <Icon className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-brand-navy/35 transition-colors group-focus-within:text-brand-orange" />
+      <select {...props} className={cn(fieldBase, "appearance-none pl-9 pr-9")}>
+        {children}
+      </select>
+      <ChevronDown className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-brand-navy/35" />
+    </div>
+  );
+}
+
+function Stepper({ step, compact }: { step: number; compact: boolean }) {
+  return (
+    <div className="flex items-center">
+      {STEPS.map((label, i) => {
+        const done = i < step;
+        const active = i === step;
+        return (
+          <div key={label} className="flex flex-1 items-center last:flex-none">
+            <div className="flex items-center gap-2">
+              <span
+                className={cn(
+                  "flex size-7 shrink-0 items-center justify-center rounded-full text-xs font-bold transition-colors",
+                  done || active
+                    ? "bg-brand-orange text-white"
+                    : "bg-black/10 text-brand-navy/50"
+                )}
+              >
+                {done ? <Check className="size-4" /> : i + 1}
+              </span>
+              {!compact && (
+                <span
+                  className={cn(
+                    "text-xs font-medium transition-colors",
+                    active ? "text-brand-navy" : "text-brand-navy/45"
+                  )}
+                >
+                  {label}
+                </span>
+              )}
+            </div>
+            {i < STEPS.length - 1 && (
+              <span className="mx-2 h-0.5 flex-1 overflow-hidden rounded bg-black/10">
+                <span
+                  className={cn(
+                    "block h-full bg-brand-orange transition-all duration-300",
+                    done ? "w-full" : "w-0"
+                  )}
+                />
+              </span>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -25,9 +120,10 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="rounded-md bg-brand-orange px-6 py-2.5 text-sm font-semibold text-white transition hover:brightness-95 disabled:opacity-60"
+      className="inline-flex cursor-pointer items-center gap-2 rounded-lg bg-brand-orange px-6 py-2.5 text-sm font-semibold text-white shadow-md shadow-brand-orange/25 transition hover:brightness-95 disabled:opacity-60"
     >
       {pending ? "Submitting…" : "Get My Quote"}
+      {!pending && <ArrowRight className="size-4" />}
     </button>
   );
 }
@@ -50,96 +146,69 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
   }, [state]);
 
   return (
-    <form ref={formRef} action={formAction} className="space-y-4">
+    <form ref={formRef} action={formAction} className="space-y-5">
       {/* honeypot */}
       <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
 
-      {/* Stepper */}
-      <div className="flex items-center gap-2">
-        {STEPS.map((label, i) => (
-          <div key={label} className="flex flex-1 items-center gap-2">
-            <span
-              className={cn(
-                "flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-bold",
-                i <= step ? "bg-brand-orange text-white" : "bg-black/10 text-brand-navy/60"
-              )}
-            >
-              {i + 1}
-            </span>
-            {!compact && (
-              <span className="hidden text-xs font-medium text-brand-navy/70 sm:block">
-                {label}
-              </span>
-            )}
-            {i < STEPS.length - 1 && <span className="h-px flex-1 bg-black/10" />}
-          </div>
-        ))}
-      </div>
+      <Stepper step={step} compact={compact} />
 
       {/* Step 1 */}
       <div className={cn("space-y-3", step !== 0 && "hidden")}>
-        <div>
-          <input name="name" placeholder="Full Name" className={inputClass} />
-          <Err msg={errs.name} />
-        </div>
-        <div>
-          <input name="email" type="email" placeholder="Email Address" className={inputClass} />
-          <Err msg={errs.email} />
-        </div>
-        <div>
-          <input name="phone" placeholder="Phone Number" className={inputClass} />
-          <Err msg={errs.phone} />
-        </div>
+        <IconInput icon={User} name="name" placeholder="Full Name" error={errs.name} />
+        <IconInput icon={Mail} type="email" name="email" placeholder="Email Address" error={errs.email} />
+        <IconInput icon={Phone} name="phone" placeholder="Phone Number" error={errs.phone} />
       </div>
 
       {/* Step 2 */}
       <div className={cn("space-y-3", step !== 1 && "hidden")}>
+        <p className="text-xs font-medium uppercase tracking-wide text-brand-navy/45">
+          Vehicle details (optional for general freight)
+        </p>
         <div className="grid grid-cols-3 gap-2">
-          <input name="vehicle_year" placeholder="Year" className={inputClass} />
-          <input name="vehicle_make" placeholder="Make" className={inputClass} />
-          <input name="vehicle_model" placeholder="Model" className={inputClass} />
+          <input name="vehicle_year" placeholder="Year" className={fieldBase} />
+          <input name="vehicle_make" placeholder="Make" className={fieldBase} />
+          <input name="vehicle_model" placeholder="Model" className={fieldBase} />
         </div>
-        <div className="grid grid-cols-2 gap-2">
-          <select name="transport_type" defaultValue="" className={inputClass}>
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          <IconSelect icon={Truck} name="transport_type" defaultValue="">
             <option value="">Transport type…</option>
             <option value="open">Open carrier</option>
             <option value="enclosed">Enclosed carrier</option>
-          </select>
-          <select name="operable" defaultValue="" className={inputClass}>
+          </IconSelect>
+          <IconSelect icon={Settings2} name="operable" defaultValue="">
             <option value="">Is it operable?</option>
             <option value="yes">Running / operable</option>
             <option value="no">Not running</option>
-          </select>
+          </IconSelect>
         </div>
-        <p className="text-xs text-brand-navy/50">
-          Shipping general freight instead of a vehicle? Leave these blank and add
-          details on the next step.
-        </p>
       </div>
 
       {/* Step 3 */}
       <div className={cn("space-y-3", step !== 2 && "hidden")}>
         <div className="grid grid-cols-2 gap-2">
-          <input name="pickup_zip" placeholder="Pickup ZIP" className={inputClass} />
-          <input name="delivery_zip" placeholder="Delivery ZIP" className={inputClass} />
+          <IconInput icon={MapPin} name="pickup_zip" placeholder="Pickup ZIP" />
+          <IconInput icon={MapPin} name="delivery_zip" placeholder="Delivery ZIP" />
         </div>
-        <input name="ship_date" type="date" className={inputClass} />
-        <textarea
-          name="message"
-          rows={3}
-          placeholder="Anything else we should know? (load details, timing…)"
-          className={inputClass}
-        />
+        <IconInput icon={Calendar} type="date" name="ship_date" />
+        <div className="group relative">
+          <MessageSquare className="pointer-events-none absolute left-3 top-3 size-4 text-brand-navy/35 transition-colors group-focus-within:text-brand-orange" />
+          <textarea
+            name="message"
+            rows={3}
+            placeholder="Anything else we should know? (load details, timing…)"
+            className={cn(fieldBase, "pl-9")}
+          />
+        </div>
         <TurnstileWidget />
       </div>
 
       {/* Controls */}
-      <div className="flex items-center justify-between pt-2">
+      <div className="flex items-center justify-between">
         <button
           type="button"
           onClick={() => setStep((s) => Math.max(0, s - 1))}
           className={cn(
-            "rounded-md border border-black/10 px-5 py-2.5 text-sm font-semibold text-brand-navy",
+            "cursor-pointer rounded-lg border border-black/10 px-5 py-2.5 text-sm font-semibold text-brand-navy transition hover:bg-neutral-50",
             step === 0 && "invisible"
           )}
         >
@@ -149,13 +218,18 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
           <button
             type="button"
             onClick={() => setStep((s) => Math.min(STEPS.length - 1, s + 1))}
-            className="rounded-md bg-brand-navy px-6 py-2.5 text-sm font-semibold text-white transition hover:brightness-110"
+            className="inline-flex cursor-pointer items-center gap-2 rounded-lg bg-brand-navy px-6 py-2.5 text-sm font-semibold text-white transition hover:brightness-125"
           >
-            Next
+            Next <ArrowRight className="size-4" />
           </button>
         ) : (
           <SubmitButton />
         )}
+      </div>
+
+      <div className="flex items-center justify-center gap-1.5 border-t border-black/5 pt-3 text-xs text-brand-navy/45">
+        <Lock className="size-3.5 text-emerald-600" />
+        Your information is secure &amp; confidential
       </div>
     </form>
   );

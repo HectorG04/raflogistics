@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { siteSettings } from "@/lib/site-content";
 import { PageHero } from "@/components/site/page-hero";
-import { QuoteForm } from "@/components/site/quote-form";
+import { QuoteCard } from "@/components/site/quote-card";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -83,15 +83,10 @@ export default async function ContactPage() {
           </div>
 
           {/* Quote form */}
-          <div id="quote" className="rounded-2xl border border-black/5 bg-white p-6 shadow-md sm:p-8">
-            <h2 className="font-heading text-2xl font-bold text-brand-navy">
-              Request a <span className="text-brand-orange">Free Quote</span>
-            </h2>
-            <p className="mb-6 mt-1 text-sm text-brand-navy/60">
-              Describe your load, origin, and destination — we&apos;ll respond fast.
-            </p>
-            <QuoteForm />
-          </div>
+          <QuoteCard
+            title="Request a Free Quote"
+            subtitle="Describe your load, origin, and destination — we'll respond fast."
+          />
         </div>
       </section>
     </>

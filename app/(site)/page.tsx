@@ -6,7 +6,7 @@ import { ServicesGrid } from "@/components/site/services-grid";
 import { Testimonials } from "@/components/site/testimonials";
 import { TrustStrip } from "@/components/site/trust-strip";
 import { CtaBanner } from "@/components/site/cta-banner";
-import { QuoteForm } from "@/components/site/quote-form";
+import { QuoteCard } from "@/components/site/quote-card";
 
 const WHY_US = [
   "On-time delivery you can count on",
@@ -73,15 +73,7 @@ export default async function HomePage() {
           </div>
 
           {/* Quote card */}
-          <div id="quote" className="rounded-2xl bg-white p-6 shadow-xl sm:p-8">
-            <h2 className="font-heading text-2xl font-bold text-brand-navy">
-              Request A Quote
-            </h2>
-            <p className="mb-5 mt-1 text-sm text-brand-navy/60">
-              Tell us about your shipment — we&apos;ll get right back to you.
-            </p>
-            <QuoteForm compact />
-          </div>
+          <QuoteCard compact />
         </div>
       </section>
 

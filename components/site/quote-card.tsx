@@ -13,14 +13,16 @@ export function QuoteCard({
   return (
     <div
       id="quote"
-      className="overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-black/5"
+      className="overflow-hidden rounded-2xl bg-white shadow-2xl shadow-black/40 ring-1 ring-white/15"
     >
-      {/* Branded header */}
-      <div className="relative bg-brand-navy px-6 py-6 sm:px-8">
-        <span className="absolute inset-y-0 left-0 w-1.5 bg-brand-orange" />
+      {/* Orange top accent — crisp brand edge that separates the card from the hero */}
+      <div className="h-1.5 w-full bg-brand-orange" />
+
+      {/* Branded header (lighter navy gradient so it doesn't blend with the hero) */}
+      <div className="bg-gradient-to-br from-brand-navy-light to-brand-navy px-6 py-6 sm:px-8">
         <h2 className="font-heading text-2xl font-bold text-white">{title}</h2>
-        <p className="mt-1 text-sm text-white/70">{subtitle}</p>
-        <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-brand-orange/15 px-3 py-1 text-xs font-semibold text-brand-orange ring-1 ring-brand-orange/30">
+        <p className="mt-1 text-sm text-white/75">{subtitle}</p>
+        <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-brand-orange/15 px-3 py-1 text-xs font-semibold text-brand-orange ring-1 ring-brand-orange/40">
           <BadgeCheck className="size-3.5" /> 100% Free · No Obligation
         </span>
       </div>

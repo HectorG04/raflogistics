@@ -70,9 +70,14 @@ export function Footer({ settings }: { settings: SiteSettings }) {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-6 py-5 text-center text-xs text-white/50">
-          © {new Date().getFullYear()} Raf Auto Freight Logistics. All rights
-          reserved.
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 py-5 text-xs text-white/50 sm:flex-row">
+          <span>
+            © {new Date().getFullYear()} Raf Auto Freight Logistics. All rights
+            reserved.
+          </span>
+          <Link href="/privacy-policy" className="hover:text-brand-orange">
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>

@@ -5,6 +5,7 @@ import { useFormStatus } from "react-dom";
 import { toast } from "sonner";
 import { submitCarrierApplication } from "@/app/actions/carrier";
 import { initialFormState } from "@/lib/forms";
+import { trackLead } from "@/lib/analytics";
 import { TurnstileWidget } from "@/components/site/turnstile-widget";
 
 const EQUIPMENT = [
@@ -48,6 +49,7 @@ export function CarrierForm() {
   useEffect(() => {
     if (state.status === "success") {
       toast.success(state.message ?? "Application received!");
+      trackLead("carrier");
       formRef.current?.reset();
     } else if (state.status === "error" && state.message) {
       toast.error(state.message);

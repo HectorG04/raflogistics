@@ -3,6 +3,7 @@ import { Montserrat, Poppins, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -47,6 +48,7 @@ export default function RootLayout({
         {children}
         <Toaster richColors position="top-center" />
         <Analytics />
+        <GoogleAnalytics />
       </body>
     </html>
   );

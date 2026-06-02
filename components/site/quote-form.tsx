@@ -5,6 +5,7 @@ import { useFormStatus } from "react-dom";
 import { toast } from "sonner";
 import { submitQuote } from "@/app/actions/quote";
 import { initialFormState } from "@/lib/forms";
+import { trackLead } from "@/lib/analytics";
 import { TurnstileWidget } from "@/components/site/turnstile-widget";
 import { cn } from "@/lib/utils";
 
@@ -40,6 +41,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
   useEffect(() => {
     if (state.status === "success") {
       toast.success(state.message ?? "Request received!");
+      trackLead("quote");
       formRef.current?.reset();
       setStep(0);
     } else if (state.status === "error" && state.message) {
